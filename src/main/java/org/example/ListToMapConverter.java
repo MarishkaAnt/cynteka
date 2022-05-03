@@ -55,15 +55,22 @@ public class ListToMapConverter {
         String s1 = "Бетон с присадкой";
         String s2 = "Цемент";
         FileReader fileReader = new FileReader();
+        FileReader2 fileReader2 = new FileReader2();
         List<String> strings = fileReader.read("src/main/resources/input.txt");
+        List<String> strings2 = fileReader.read("src/main/resources/input.txt");
         String s3 = strings.get(1);
         String s4 = strings.get(3);
+        String s5 = strings2.get(1);
+        String s6 = strings2.get(3);
         System.out.println(s1);
         System.out.println(s2);
         System.out.println(s3);
         System.out.println(s4);
+        System.out.println(s5);
+        System.out.println(s6);
         hasSynonyms(s1, s2);
         hasSynonyms(s3, s4);
+        hasSynonyms(s5, s6);
 //============================================================
     }
 
