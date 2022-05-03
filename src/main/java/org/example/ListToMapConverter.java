@@ -43,39 +43,11 @@ public class ListToMapConverter {
                     .orElse("?");
             map.put(s1, arr2result);
         }
-        System.out.println(map);
-
-
         return map;
     }
 
-    public static void main(String[] args) {
-        // вот здесь проблемка, пытаюсь её решить.
-        //===========================================================
-        String s1 = "Бетон с присадкой";
-        String s2 = "Цемент";
-        FileReader fileReader = new FileReader();
-        FileReader2 fileReader2 = new FileReader2();
-        List<String> strings = fileReader.read("src/main/resources/input.txt");
-        List<String> strings2 = fileReader.read("src/main/resources/input.txt");
-        String s3 = strings.get(1);
-        String s4 = strings.get(3);
-        String s5 = strings2.get(1);
-        String s6 = strings2.get(3);
-        System.out.println(s1);
-        System.out.println(s2);
-        System.out.println(s3);
-        System.out.println(s4);
-        System.out.println(s5);
-        System.out.println(s6);
-        hasSynonyms(s1, s2);
-        hasSynonyms(s3, s4);
-        hasSynonyms(s5, s6);
-//============================================================
-    }
 
     private static boolean hasSameSubstringWithThisLength(String s1, String s2){
-        System.out.println("has same substring");
         int length = 7;
         boolean res = false;
         for (int i = 0; i < (s1.length() - length); i++) {
@@ -86,12 +58,10 @@ public class ListToMapConverter {
                 break;
             }
         }
-        System.out.println(res);
         return res;
     }
 
     private static boolean hasSynonyms(String s1, String s2){
-        System.out.println("has synonyms");
         boolean res = false;
         List<String> strings1 = Arrays.stream(s1.split(" "))
                 .map(ListToMapConverter::cyrillicToLowerCase)
@@ -106,7 +76,6 @@ public class ListToMapConverter {
                 res = strings2.contains(s3);
             }
         }
-        System.out.println(res);
         return res;
     }
 
