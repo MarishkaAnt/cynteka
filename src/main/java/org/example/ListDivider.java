@@ -3,9 +3,9 @@ package org.example;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Divider {
+public class ListDivider {
 
-    public List<List<String>> divide(List<String> list){
+    public List<List<String>> divide(List<String> list) {
         List<List<String>> lists = new ArrayList<>();
         List<String> arr1 = new ArrayList<>();
         List<String> arr2 = new ArrayList<>();
@@ -20,8 +20,7 @@ public class Divider {
             for (int i = firstArrayLength + 2, listSize = list.size(); i < listSize; i++) {
                 arr2.add(list.get(i));
             }
-            if(!(arr1.size() == firstArrayLength && arr2.size() == lastArrayLength)){
-                System.out.println("Something goes wrong, please check the content of the file and try again");
+            if (!(arr1.size() == firstArrayLength && arr2.size() == lastArrayLength)) {
                 throw new ListDividerException("There is mismatch of lengths from file with sizes of result arrays");
             }
             lists.add(arr1);

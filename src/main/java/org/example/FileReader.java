@@ -19,7 +19,7 @@ public class FileReader {
                 }
             }
             scanner.close();
-            System.out.println("The file contents this lines: " + list);
+            System.out.println("The file contents lines: " + list);
         } catch (FileNotFoundException e) {
             throw  new FileReaderException(e, "File not found or broken");
         }
