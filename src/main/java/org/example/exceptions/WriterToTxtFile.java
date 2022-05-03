@@ -11,7 +11,7 @@ import static java.nio.file.Files.writeString;
 public class WriterToTxtFile {
 
     public void writeToFile(String path, Map<String, String> map) throws IOException {
-        if(Files.notExists(Path.of(path))) {
+        if (Files.notExists(Path.of(path))) {
             createFile(Path.of(path));
         }
         writeString(Path.of(path), map.toString());

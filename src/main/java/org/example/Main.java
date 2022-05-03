@@ -17,21 +17,21 @@ public class Main {
 
         List<String> list = fileReader.read(inputPath);
         List<List<String>> lists = divider.divide(list);
-        Map<String, String> map = new HashMap<>(converter.convert(lists)){
+        Map<String, String> map = new HashMap<>(converter.convert(lists)) {
             @Override
             public String toString() {
-                Iterator<Entry<String,String>> i = entrySet().iterator();
-                if (! i.hasNext())
+                Iterator<Entry<String, String>> i = entrySet().iterator();
+                if (!i.hasNext())
                     return "{}";
                 StringBuilder sb = new StringBuilder();
-                for (;;) {
-                    Entry<String,String> e = i.next();
-                    String  key = e.getKey();
+                for (; ; ) {
+                    Entry<String, String> e = i.next();
+                    String key = e.getKey();
                     String value = e.getValue();
                     sb.append(key);
                     sb.append(':');
                     sb.append(value);
-                    if (! i.hasNext())
+                    if (!i.hasNext())
                         return sb.toString();
                     sb.append('\n');
                 }

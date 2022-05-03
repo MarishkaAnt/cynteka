@@ -10,7 +10,7 @@ import static java.nio.file.Files.readAllLines;
 
 public class FileReader2 {
 
-    public List<String> read(String path){
+    public List<String> read(String path) {
         List<String> lines = new ArrayList<>();
         try {
             lines = readAllLines(Path.of(path));

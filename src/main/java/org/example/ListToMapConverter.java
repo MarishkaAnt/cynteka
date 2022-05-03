@@ -4,14 +4,15 @@ import org.apache.commons.lang3.StringUtils;
 
 import java.util.*;
 
-/** @author MARIIA
+/**
+ * @author MARIIA
  * This converter found if two lists has any intersections.
  * It compares arrays on same words and same meanings
  * input: List of two lists with strings
  * output: map with keys of first list strings and values of
  * the same strings founded from second list
  * if same string wasn't found, value = ?
- *
+ * <p>
  * Example input:
  * list1 = {Бетон с присадкой}, list2 = {присадка бля бетона, доставка}
  * Example output: map = {присадка бля бетона=Бетон с присадкой, доставка=?}
@@ -22,13 +23,13 @@ public class ListToMapConverter {
             "ведро", "корыто",
             "корыто", "ведро");
 
-    public Map<String, String> convert( List<List<String>> lists) {
+    public Map<String, String> convert(List<List<String>> lists) {
         List<String> arr1;
         List<String> arr2;
-        if(lists.get(0).size() >= lists.get(1).size()) {
+        if (lists.get(0).size() >= lists.get(1).size()) {
             arr1 = lists.get(0);
             arr2 = lists.get(1);
-        } else{
+        } else {
             arr2 = lists.get(0);
             arr1 = lists.get(1);
         }
@@ -47,21 +48,21 @@ public class ListToMapConverter {
     }
 
 
-    private static boolean hasSameSubstringWithThisLength(String s1, String s2){
+    private static boolean hasSameSubstringWithThisLength(String s1, String s2) {
         int length = 7;
         boolean res = false;
         for (int i = 0; i < (s1.length() - length); i++) {
             int end = i + length;
             String substring = s1.substring(i, end);
             res = s2.contains(substring);
-            if(res){
+            if (res) {
                 break;
             }
         }
         return res;
     }
 
-    private static boolean hasSynonyms(String s1, String s2){
+    private static boolean hasSynonyms(String s1, String s2) {
         boolean res = false;
         List<String> strings1 = Arrays.stream(s1.split(" "))
                 .map(ListToMapConverter::cyrillicToLowerCase)
@@ -72,7 +73,7 @@ public class ListToMapConverter {
         for (String s :
                 strings1) {
             String s3 = synonims.get(s);
-            if(s3 != null){
+            if (s3 != null) {
                 res = strings2.contains(s3);
             }
         }
@@ -80,12 +81,12 @@ public class ListToMapConverter {
     }
 
     private static String cyrillicToLowerCase(String str) {
-        char[] uppercaseCyrillics = { 'А', 'Б', 'В', 'Г', 'Д', 'Е', 'Ж', 'З',
+        char[] uppercaseCyrillics = {'А', 'Б', 'В', 'Г', 'Д', 'Е', 'Ж', 'З',
                 'И', 'Й', 'К', 'Л', 'М', 'Н', 'О', 'П', 'Р', 'С', 'Т', 'У',
-                'Ф', 'Х', 'Ц', 'Ч', 'Ш', 'Щ', 'Ъ', 'Ы', 'Ь', 'Э', 'Ю', 'Я' };
-        char[] lowercaseCyrillics = { 'а', 'б', 'в', 'г', 'д', 'е', 'ж', 'з',
+                'Ф', 'Х', 'Ц', 'Ч', 'Ш', 'Щ', 'Ъ', 'Ы', 'Ь', 'Э', 'Ю', 'Я'};
+        char[] lowercaseCyrillics = {'а', 'б', 'в', 'г', 'д', 'е', 'ж', 'з',
                 'и', 'й', 'к', 'л', 'м', 'н', 'о', 'п', 'р', 'с', 'т', 'у',
-                'ф', 'х', 'ц', 'ч', 'ш', 'щ', 'ъ', 'ы', 'ь', 'э', 'ю', 'я' };
+                'ф', 'х', 'ц', 'ч', 'ш', 'щ', 'ъ', 'ы', 'ь', 'э', 'ю', 'я'};
         for (int i = 0; i < uppercaseCyrillics.length; i++) {
             str = str.replace(uppercaseCyrillics[i], lowercaseCyrillics[i]);
         }
