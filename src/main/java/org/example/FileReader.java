@@ -6,6 +6,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+/** @author MARIIA
+ * This reader open txt file from path
+ * read file and write all lines to list of strings
+ * the method skips all blank lines
+ *
+ * input: String path
+ * output: list of strings
+ */
 public class FileReader {
 
     public List<String> read(String path){

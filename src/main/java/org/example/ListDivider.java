@@ -3,6 +3,26 @@ package org.example;
 import java.util.ArrayList;
 import java.util.List;
 
+/** @author MARIIA
+ * This is custom divider that divide list of structure like this:
+ *      n - number
+ *      then n lines
+ *      m - number
+ *      then m lines
+ * to two lists with n strings and m strings.
+ *
+ * Example input:
+ * 1
+ * Бетон с присадкой
+ * 2
+ * присадка бля бетона
+ * доставка
+ *
+ * Example output:
+ * list1 = {Бетон с присадкой}
+ * list2 = {присадка бля бетона, доставка}
+ *
+ */
 public class ListDivider {
 
     public List<List<String>> divide(List<String> list) {
