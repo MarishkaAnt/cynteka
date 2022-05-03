@@ -1,6 +1,6 @@
-package org.example;
+package com.cynteka;
 
-import org.example.exceptions.FileReaderException;
+import com.cynteka.exceptions.FileReaderException;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -19,7 +19,7 @@ import java.util.Scanner;
  */
 public class FileReader {
 
-    public List<String> read(String path) {
+    public static List<String> read(String path) {
         List<String> list = new ArrayList<>();
         try {
             Scanner scanner = new Scanner(new File(path), "UTF-8");

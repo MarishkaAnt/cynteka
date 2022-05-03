@@ -1,4 +1,4 @@
-package org.example.exceptions;
+package com.cynteka.exceptions;
 
 public class ListDividerException extends RuntimeException{
     String message;

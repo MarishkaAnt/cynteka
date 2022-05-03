@@ -1,4 +1,4 @@
-package org.example.exceptions;
+package com.cynteka.exceptions;
 
 public class FileReaderException extends RuntimeException{
     String message;

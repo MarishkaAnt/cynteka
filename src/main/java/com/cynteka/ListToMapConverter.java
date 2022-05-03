@@ -1,4 +1,4 @@
-package org.example;
+package com.cynteka;
 
 import org.apache.commons.lang3.StringUtils;
 
@@ -23,7 +23,7 @@ public class ListToMapConverter {
             "ведро", "корыто",
             "корыто", "ведро");
 
-    public Map<String, String> convert(List<List<String>> lists) {
+    public static Map<String, String> convert(List<List<String>> lists) {
         List<String> arr1;
         List<String> arr2;
         if (lists.get(0).size() >= lists.get(1).size()) {

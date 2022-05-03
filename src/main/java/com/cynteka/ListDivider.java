@@ -1,6 +1,6 @@
-package org.example;
+package com.cynteka;
 
-import org.example.exceptions.ListDividerException;
+import com.cynteka.exceptions.ListDividerException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,7 +27,7 @@ import java.util.List;
  */
 public class ListDivider {
 
-    public List<List<String>> divide(List<String> list) {
+    public static List<List<String>> divide(List<String> list) {
         List<List<String>> lists = new ArrayList<>();
         List<String> arr1 = new ArrayList<>();
         List<String> arr2 = new ArrayList<>();

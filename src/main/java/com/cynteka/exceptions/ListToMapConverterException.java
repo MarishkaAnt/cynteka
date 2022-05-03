@@ -1,4 +1,4 @@
-package org.example.exceptions;
+package com.cynteka.exceptions;
 
 public class ListToMapConverterException extends RuntimeException{
     String message;
