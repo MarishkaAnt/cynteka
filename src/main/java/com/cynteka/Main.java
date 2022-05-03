@@ -1,7 +1,8 @@
 package com.cynteka;
 
 import java.io.IOException;
-import java.util.*;
+import java.util.List;
+import java.util.Map;
 
 
 public class Main {
