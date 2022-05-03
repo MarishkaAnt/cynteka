@@ -3,7 +3,6 @@ package com.cynteka;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.Iterator;
 import java.util.Map;
 
 import static java.nio.file.Files.createFile;
@@ -16,14 +15,12 @@ public class WriterToTxtFile {
             createFile(Path.of(path));
         }
         StringBuilder sb = new StringBuilder();
-        for (Map.Entry<String, String> entry : map.entrySet()) {
-            String key = entry.getKey();
-            String value = entry.getValue();
+        map.forEach((key, value) -> {
             sb.append(key);
             sb.append(':');
             sb.append(value);
             sb.append('\n');
-        }
+        });
         writeString(Path.of(path), sb);
     }
 }
