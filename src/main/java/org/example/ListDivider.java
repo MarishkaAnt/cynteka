@@ -1,5 +1,7 @@
 package org.example;
 
+import org.example.exceptions.ListDividerException;
+
 import java.util.ArrayList;
 import java.util.List;
 

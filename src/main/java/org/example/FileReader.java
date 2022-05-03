@@ -1,5 +1,7 @@
 package org.example;
 
+import org.example.exceptions.FileReaderException;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
