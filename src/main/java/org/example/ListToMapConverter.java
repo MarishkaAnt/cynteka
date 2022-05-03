@@ -2,30 +2,39 @@ package org.example;
 
 import org.apache.commons.lang3.StringUtils;
 
-import java.util.HashSet;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
-/**@author MARIIA
- * This converter found if two arrays has any intersections
- * it compares arrays on same words and same meanings
+/** @author MARIIA
+ * This converter found if two lists has any intersections.
+ * It compares arrays on same words and same meanings
  * input: List of two lists with strings
  * output: map with keys of first list strings and values of
- * founded from second list same strings
+ * the same strings founded from second list
  * if same string wasn't found, value = ?
+ *
+ * Example input:
+ * list1 = {Бетон с присадкой}, list2 = {присадка бля бетона, доставка}
+ * Example output: map = {Бетон с присадкой=присадка бля бетона}
  */
 public class ListToMapConverter {
 
     public Map<String, String> convert( List<List<String>> lists) {
-        List<String> arr1 = lists.get(0);
-        List<String> arr2 = lists.get(1);
+        List<String> arr1;
+        List<String> arr2;
+        if(lists.get(0).size() >= lists.get(1).size()) {
+            arr1 = lists.get(0);
+            arr2 = lists.get(1);
+        } else{
+            arr2 = lists.get(0);
+            arr1 = lists.get(1);
+        }
         Map<String, String> map = new LinkedHashMap<>();
         for (String s1 : arr1) {
             String arr2result = arr2.stream()
                     .filter(s -> StringUtils.containsIgnoreCase(s, s1)
-                            || StringUtils.containsIgnoreCase(s1, s)
-                            || isIntersected(s, s1))
+                           || StringUtils.containsIgnoreCase(s1, s)
+                            || hasSameSubstringWithThisLength(s, s1)
+                    )
                     .findAny()
                     .orElse("?");
             map.put(s1, arr2result);
@@ -34,17 +43,17 @@ public class ListToMapConverter {
         return map;
     }
 
-    private static boolean isIntersected(String s1, String s2){
-        HashSet<Character> h1 = new HashSet<>(), h2 = new HashSet<>();
-        for(int i = 0; i < s1.length(); i++)
-        {
-            h1.add(s1.charAt(i));
+    private static boolean hasSameSubstringWithThisLength(String s1, String s2){
+        int length = 7;
+        boolean res = false;
+        for (int i = 0; i < (s1.length() - length); i++) {
+            int end = i + length;
+            String substring = s1.substring(i, end);
+            res = s2.contains(substring);
+            if(res){
+                break;
+            }
         }
-        for(int i = 0; i < s2.length(); i++)
-        {
-            h2.add(s2.charAt(i));
-        }
-        h1.retainAll(h2);
-        return h1.size() > 5;
+        return res;
     }
 }
