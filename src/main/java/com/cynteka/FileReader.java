@@ -8,7 +8,7 @@ import java.util.stream.Collectors;
 
 import static java.nio.file.Files.readAllLines;
 
-public class FileReader2 {
+public class FileReader {
 
     public static List<String> read(String path) throws IOException {
         return readAllLines(Path.of(path), StandardCharsets.UTF_8).stream()
@@ -16,7 +16,4 @@ public class FileReader2 {
                 .collect(Collectors.toList());
     }
 
-    public static void main(String[] args) throws IOException {
-        read(args[0]);
-    }
 }
