@@ -1,13 +1,13 @@
 package com.cynteka;
 
-import org.slf4j.Logger;
+import lombok.extern.slf4j.Slf4j;
 
 import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
+@Slf4j
 public class Main {
-    private static final Logger log = org.slf4j.LoggerFactory.getLogger(Main.class);
 
     public static void main(String[] args) throws IOException {
         if (args.length < 2) {

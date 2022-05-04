@@ -1,5 +1,6 @@
 package com.cynteka;
 
+import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 
 import java.io.IOException;
@@ -11,9 +12,8 @@ import java.util.stream.Collectors;
 
 import static java.nio.file.Files.readAllLines;
 
+@Slf4j
 public class TxtFileReader {
-
-    private static final Logger log = org.slf4j.LoggerFactory.getLogger(TxtFileReader.class);
 
     public static List<String> readNotBlankLinesFromFile(String inputFilePath) throws IOException {
         Path path;
