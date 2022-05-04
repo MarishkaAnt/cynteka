@@ -16,7 +16,8 @@ public class MainTest {
         final String outputPath = "src/test/resources/output.txt";
         final Map<String, String> rightPaths = Map.of(
                 "src/test/resources/input1.txt", "src/test/resources/expected1.txt",
-                "src/test/resources/input2.txt", "src/test/resources/expected2.txt"
+                "src/test/resources/input2.txt", "src/test/resources/expected2.txt",
+                "src/test/resources/input3.txt", "src/test/resources/expected3.txt"
         );
         //when
         rightPaths.forEach((key, value) -> {
