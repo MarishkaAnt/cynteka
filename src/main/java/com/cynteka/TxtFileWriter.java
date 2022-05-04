@@ -8,7 +8,7 @@ import java.util.Map;
 import static java.nio.file.Files.createFile;
 import static java.nio.file.Files.writeString;
 
-public class WriterToTxtFile {
+public class TxtFileWriter {
 
     public static void writeToFile(String path, Map<String, String> map) throws IOException {
         if (Files.notExists(Path.of(path))) {

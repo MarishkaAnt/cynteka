@@ -24,8 +24,8 @@ public class MainTest {
             List<String> expected = null;
             try {
                 Main.main(new String[]{key, outputPath});
-                result = FileReader.read(outputPath);
-                expected = FileReader.read(value);
+                result = TxtFileReader.readNotBlankLinesFromFile(outputPath);
+                expected = TxtFileReader.readNotBlankLinesFromFile(value);
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -35,7 +35,7 @@ public class MainTest {
     }
 
     @Test
-    void whenEmptyArgsToMainMethod_thenRuntimeExceptionThrown() {
-        assertThrows(RuntimeException.class,  () -> Main.main(new String[0]));
+    void whenEmptyArgsToMainMethod_thenNothingThrown() {
+        assertDoesNotThrow(() -> Main.main(new String[0]));
     }
 }
