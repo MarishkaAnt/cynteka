@@ -25,7 +25,7 @@ public class Main {
                 log.info("There is mismatch of lengths from file with sizes of result arrays");
             }
             Map<String, String> map = SimilarStringsMatcher.convert(head, tail);
-            TxtFileWriter.writeToFile(outputPath, map);
+            TxtFileWriter.writeToTxTFile(outputPath, map);
         }
     }
 }

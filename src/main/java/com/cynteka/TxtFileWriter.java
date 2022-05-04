@@ -10,7 +10,7 @@ import static java.nio.file.Files.writeString;
 
 public class TxtFileWriter {
 
-    public static void writeToFile(String path, Map<String, String> map) throws IOException {
+    public static void writeToTxTFile(String path, Map<String, String> map) throws IOException {
         if (Files.notExists(Path.of(path))) {
             createFile(Path.of(path));
         }
