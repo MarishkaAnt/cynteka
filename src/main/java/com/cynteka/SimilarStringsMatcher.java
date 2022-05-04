@@ -31,8 +31,8 @@ public class SimilarStringsMatcher {
             firstList = head;
             secondList = tail;
         } else {
-            secondList = tail;
-            firstList = head;
+            firstList = tail;
+            secondList = head;
         }
         Map<String, String> map = new LinkedHashMap<>();
         for (String s1 : firstList) {
