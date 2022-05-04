@@ -24,15 +24,15 @@ public class SimilarStringsMatcher {
             "ведро", "корыто",
             "корыто", "ведро");
 
-    public static Map<String, String> convert(List<List<String>> lists) {
+    public static Map<String, String> convert(List<String> head, List<String> tail) {
         List<String> firstList;
         List<String> secondList;
-        if (lists.get(0).size() >= lists.get(1).size()) {
-            firstList = lists.get(0);
-            secondList = lists.get(1);
+        if (head.size() >= tail.size()) {
+            firstList = head;
+            secondList = tail;
         } else {
-            secondList = lists.get(0);
-            firstList = lists.get(1);
+            secondList = tail;
+            firstList = head;
         }
         Map<String, String> map = new LinkedHashMap<>();
         for (String s1 : firstList) {
