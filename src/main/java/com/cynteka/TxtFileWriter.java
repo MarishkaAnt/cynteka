@@ -19,7 +19,8 @@ public class TxtFileWriter {
             sb.append(key);
             sb.append(':');
             sb.append(value);
-            sb.append('\n');
+            sb.append(System.lineSeparator());
+            sb.append(System.lineSeparator());
         });
         writeString(Path.of(path), sb);
     }
