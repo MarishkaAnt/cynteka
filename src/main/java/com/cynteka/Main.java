@@ -26,6 +26,7 @@ public class Main {
             }
             Map<String, String> map = SimilarStringsMatcher.convert(head, tail);
             TxtFileWriter.writeToTxTFile(outputPath, map);
+            log.info("Success!");
         }
     }
 }

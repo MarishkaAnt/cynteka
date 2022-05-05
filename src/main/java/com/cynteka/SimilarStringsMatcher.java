@@ -25,25 +25,23 @@ public class SimilarStringsMatcher {
             "корыто", "ведро");
 
     public static Map<String, String> convert(List<String> head, List<String> tail) {
-        List<String> firstList;
-        List<String> secondList;
-        if (head.size() >= tail.size()) {
-            firstList = head;
-            secondList = tail;
-        } else {
-            firstList = tail;
-            secondList = head;
-        }
+        List<String> firstList = new ArrayList<>(head);
+        List<String> secondList = new ArrayList<>(tail);
+
         Map<String, String> map = new LinkedHashMap<>();
-        for (String s1 : firstList) {
-            String arr2result = secondList.stream()
-                    .filter(s -> StringUtils.containsIgnoreCase(s, s1)
-                            || StringUtils.containsIgnoreCase(s1, s)
-                            || hasSynonymWords(s1, s)
-                            || hasSameSubstringWithThisLength(s, s1))
+        for (String string : firstList) {
+            String result = secondList.stream()
+                    .filter(s -> StringUtils.containsIgnoreCase(s, string)
+                            || StringUtils.containsIgnoreCase(string, s)
+                            || hasSynonymWords(string, s)
+                            || hasSameSubstringWithThisLength(s, string))
                     .findAny()
                     .orElse("?");
-            map.put(s1, arr2result);
+            map.put(string, result);
+            secondList.remove(result);
+        }
+        for (String s : secondList) {
+            map.put(s, "?");
         }
         return map;
     }
