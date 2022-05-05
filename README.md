@@ -2,9 +2,9 @@
 ____
 
 для запуска:
-клонировать приложение с github
-запустить метод main() в классе Main, передав два аргумента:
+
+запустить исполняемый jar-файл, передав два аргумента:
 1. путь к файлу с входными данными
 2. путь для сохранения выходного файла
 
-Например: "src/main/resources/input.txt" "src/main/resources/output.txt"
+Например: java -jar cynteka-1.0.jar "C:\Users\UserName\Desktop\input.txt" "C:\Users\UserName\Desktop\output.txt"
