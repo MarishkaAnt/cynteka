@@ -20,10 +20,12 @@ public class Main {
                 List<String> list = TxtFileReader.readNotBlankLinesFromFile(inputPath);
                 Map<String, String> similarStrings = SimilarStringsMatcher.findSimilarStrings(list);
                 TxtFileWriter.writeToTxTFile(outputPath, similarStrings);
+                log.info("Success");
+
             } catch (IOException e) {
                 log.error("Something goes wrong: ", e);
             }
-            log.info("Success!");
+            log.info("Finish program executing");
         }
     }
 }
