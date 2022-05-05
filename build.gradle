@@ -2,6 +2,7 @@ plugins {
     id 'java'
     id 'idea'
 }
+apply plugin: 'application'
 
 group 'org.example'
 version '1.0'
@@ -14,6 +15,14 @@ compileTestJava.options.encoding = 'UTF-8'
 
 task logInfo {
     logging.captureStandardOutput LogLevel.INFO
+}
+task fatJar(type: Jar) {
+    manifest.from jar.manifest
+    with jar
+}
+
+artifacts {
+    archives fatJar
 }
 
 dependencies {
