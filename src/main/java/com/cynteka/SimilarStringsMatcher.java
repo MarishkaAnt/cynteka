@@ -24,7 +24,7 @@ public class SimilarStringsMatcher {
             "ведро", "корыто",
             "корыто", "ведро");
 
-    public static Map<String, String> convert(List<String> head, List<String> tail) {
+    public static Map<String, String> findSimilarStrings(List<String> head, List<String> tail) {
         List<String> firstList = new ArrayList<>(head);
         List<String> secondList = new ArrayList<>(tail);
 
